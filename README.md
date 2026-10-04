@@ -3,11 +3,11 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EfficientNet--B0-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Gradio](https://img.shields.io/badge/UI-Gradio-F97316)](https://www.gradio.app/)
-[![Hugging Face Space](https://img.shields.io/badge/🤗%20Live%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/YOUR_HF_USERNAME/dog-breed-classifier)
+[![Hugging Face Space](https://img.shields.io/badge/🤗%20Live%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier)
 
 An end-to-end deep learning project that identifies a dog's breed from a photo. It covers the full workflow: data exploration, transfer learning with PyTorch, evaluation, and a web app anyone can use.
 
-**👉 Live demo:** https://huggingface.co/spaces/YOUR_HF_USERNAME/dog-breed-classifier
+**👉 Live demo:** https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier
 
 <!-- After deploying, add a screenshot of the app: save it as assets/app_screenshot.png and uncomment:
 ![App screenshot](assets/app_screenshot.png)
@@ -103,8 +103,7 @@ Open http://127.0.0.1:7860 and upload a dog photo.
    - the whole `model/` folder (drag the folder in so the path stays `model/...`)
    - optionally the `examples/` folder with a few dog photos
 4. Click **Commit**. The Space builds for a few minutes, then your app is live at
-   `https://huggingface.co/spaces/YOUR_HF_USERNAME/dog-breed-classifier` — share that link.
-5. Replace `YOUR_HF_USERNAME` in this README with your username.
+   `https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier` — share that link.
 
 <details>
 <summary>Alternative: push with git</summary>
@@ -112,7 +111,7 @@ Open http://127.0.0.1:7860 and upload a dog photo.
 ```bash
 pip install huggingface_hub
 huggingface-cli login                      # paste a write token from hf.co/settings/tokens
-git clone https://huggingface.co/spaces/YOUR_HF_USERNAME/dog-breed-classifier hf-space
+git clone https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier hf-space
 cp -r app.py model_utils.py breed_info.json requirements.txt model examples hf-space/
 cd hf-space
 git lfs install && git lfs track "*.pth"   # weights are >10 MB, so they go through Git LFS
