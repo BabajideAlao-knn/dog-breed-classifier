@@ -1,0 +1,11 @@
+{
+  "architecture": "EfficientNet-B0 (ImageNet pretrained, fine-tuned)",
+  "num_classes": 10,
+  "train_images": 676,
+  "val_images": 145,
+  "test_images": 146,
+  "best_val_accuracy": 1.0,
+  "test_accuracy": 0.9932,
+  "test_top3_accuracy": 0.9932,
+  "epochs_trained": 17
+}

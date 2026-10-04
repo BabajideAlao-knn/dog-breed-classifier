@@ -27,17 +27,30 @@ An end-to-end deep learning project that identifies a dog's breed from a photo. 
 
 ## Results
 
-<!-- Fill these in from model/metrics.json after training -->
 | Metric | Score |
 |---|---|
-| Test accuracy | _XX.X%_ |
-| Top-3 accuracy | _XX.X%_ |
-| Test images | _~150 (held out, never seen in training)_ |
+| **Test accuracy** | **99.3%** (145 / 146) |
+| Best validation accuracy | 100% |
+| Train / validation / test images | 676 / 145 / 146 |
+| Epochs trained | 17 (5 head-only + 12 fine-tuning) |
+
+The model got every test image right except one German Shepherd, which it predicted as a Yorkshire Terrier. Training and validation curves track each other closely, so the model isn't overfitting despite the small dataset. Most of the gain comes in the fine-tuning stage (the dashed line).
 
 <p align="center">
   <img src="assets/training_curves.png" width="85%" alt="Training curves"><br>
   <img src="assets/confusion_matrix.png" width="60%" alt="Confusion matrix">
 </p>
+
+> With only ~15 test images per breed, a single mistake moves accuracy by about 0.7 points, so treat 99.3% as "very high on this dataset" rather than a precise figure. Real-world photos (odd angles, mixed breeds) will be harder.
+
+<details>
+<summary>Dataset overview</summary>
+
+<p align="center">
+  <img src="assets/class_distribution.png" width="70%" alt="Images per breed"><br>
+  <img src="assets/sample_images.png" width="70%" alt="Sample images per breed">
+</p>
+</details>
 
 ## Approach
 
