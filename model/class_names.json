@@ -1,0 +1,15 @@
+{
+  "classes": [
+    "Beagle",
+    "Boxer",
+    "Bulldog",
+    "Dachshund",
+    "German Shepherd",
+    "Golden Retriever",
+    "Labrador Retriever",
+    "Poodle",
+    "Rottweiler",
+    "Yorkshire Terrier"
+  ],
+  "note": "Placeholder. The training notebook overwrites this file with the exact class order used during training."
+}

@@ -1,0 +1,12 @@
+{
+  "beagle": {"origin": "England", "size": "Small–medium", "temperament": "Friendly, curious, merry", "fact": "A scent hound with one of the keenest noses of any breed — often used as detection dogs at airports."},
+  "boxer": {"origin": "Germany", "size": "Medium–large", "temperament": "Playful, energetic, loyal", "fact": "Known for 'boxing' with their front paws during play, which may be where the name comes from."},
+  "bulldog": {"origin": "England", "size": "Medium", "temperament": "Calm, courageous, affectionate", "fact": "Their loose skin and pushed-in face make them sensitive to heat, so they prefer short walks."},
+  "dachshund": {"origin": "Germany", "size": "Small", "temperament": "Clever, stubborn, brave", "fact": "Bred to hunt badgers — the name literally means 'badger dog' in German."},
+  "german shepherd": {"origin": "Germany", "size": "Large", "temperament": "Intelligent, confident, protective", "fact": "One of the most popular working breeds for police, search-and-rescue and guide work."},
+  "golden retriever": {"origin": "Scotland", "size": "Large", "temperament": "Friendly, gentle, eager to please", "fact": "Bred to retrieve waterfowl with a 'soft mouth' that carries game without damaging it."},
+  "labrador retriever": {"origin": "Canada (Newfoundland)", "size": "Large", "temperament": "Outgoing, even-tempered, gentle", "fact": "Has a water-resistant double coat and an 'otter tail' that works like a rudder when swimming."},
+  "poodle": {"origin": "Germany / France", "size": "Toy to Standard", "temperament": "Intelligent, active, proud", "fact": "Originally a water retriever — the classic show clip was designed to keep joints warm while swimming."},
+  "rottweiler": {"origin": "Germany", "size": "Large", "temperament": "Loyal, confident, protective", "fact": "Descended from Roman drover dogs and once pulled butchers' carts in the town of Rottweil."},
+  "yorkshire terrier": {"origin": "England", "size": "Toy", "temperament": "Bold, energetic, affectionate", "fact": "Bred in Yorkshire mills to catch rats; their silky coat is closer to human hair than fur."}
+}
