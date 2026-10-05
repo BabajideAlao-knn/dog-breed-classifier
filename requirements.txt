@@ -1,8 +1,8 @@
-# App / deployment dependencies (Hugging Face Spaces installs these).
+# App dependencies (Streamlit Community Cloud installs these).
 # CPU-only PyTorch wheels keep the install small and fast.
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch>=2.2
 torchvision>=0.17
-gradio>=5.0
+streamlit>=1.50
 pillow>=10.0
 numpy>=1.24

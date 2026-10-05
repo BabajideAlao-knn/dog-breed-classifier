@@ -2,12 +2,11 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EfficientNet--B0-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Gradio](https://img.shields.io/badge/UI-Gradio-F97316)](https://www.gradio.app/)
-[![Hugging Face Space](https://img.shields.io/badge/🤗%20Live%20Demo-Hugging%20Face-yellow)](https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://babajide-dog-breed-classifier.streamlit.app)
 
 An end-to-end deep learning project that identifies a dog's breed from a photo. It covers the full workflow: data exploration, transfer learning with PyTorch, evaluation, and a web app anyone can use.
 
-**👉 Live demo:** https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier
+**👉 Live demo:** https://babajide-dog-breed-classifier.streamlit.app
 
 <!-- After deploying, add a screenshot of the app: save it as assets/app_screenshot.png and uncomment:
 ![App screenshot](assets/app_screenshot.png)
@@ -21,7 +20,7 @@ An end-to-end deep learning project that identifies a dog's breed from a photo. 
 | **Dataset** | [Dog Breed Image Dataset — Kaggle](https://www.kaggle.com/datasets/khushikhushikhushi/dog-breed-image-dataset) (~1,000 images) |
 | **Model** | EfficientNet-B0 pretrained on ImageNet, fine-tuned in two stages |
 | **Framework** | PyTorch + torchvision |
-| **App** | Gradio, hosted on Hugging Face Spaces |
+| **App** | Streamlit, hosted on Streamlit Community Cloud |
 
 **Breeds:** Beagle · Boxer · Bulldog · Dachshund · German Shepherd · Golden Retriever · Labrador Retriever · Poodle · Rottweiler · Yorkshire Terrier
 
@@ -61,7 +60,7 @@ The model got every test image right except one German Shepherd, which it predic
    - *Stage 1*: freeze the EfficientNet backbone and train only the new classifier head (lr 1e-3).
    - *Stage 2*: unfreeze everything and fine-tune with a low learning rate (1e-4), cosine annealing, label smoothing and early stopping.
 5. **Evaluation**: accuracy, top-3 accuracy, per-class precision/recall/F1, confusion matrix and a gallery of misclassified images.
-6. **Deployment**: the best checkpoint is exported and served by a Gradio app that shows the top-5 predictions, a confidence warning, and facts about the predicted breed.
+6. **Deployment**: the best checkpoint is exported and served by a Streamlit app that shows the top-5 predictions, a confidence warning, and facts about the predicted breed.
 
 ## Project structure
 
@@ -74,11 +73,12 @@ dog-breed-classifier/
 │   ├── class_names.json                 # label order used in training
 │   └── metrics.json                     # test metrics (from the notebook)
 ├── assets/                              # figures used in this README
-├── examples/                            # sample images shown in the app
-├── app.py                               # Gradio web app
+├── examples/                            # optional example images offered in the app
+├── .streamlit/config.toml               # app theme and upload limit
+├── streamlit_app.py                     # Streamlit web app
 ├── model_utils.py                       # model architecture, preprocessing, inference
 ├── breed_info.json                      # breed facts shown in the app
-├── requirements.txt                     # app dependencies (also used by HF Spaces)
+├── requirements.txt                     # app dependencies (used by Streamlit Cloud)
 └── requirements-train.txt               # extra dependencies for the notebook
 ```
 
@@ -102,46 +102,26 @@ git clone https://github.com/BabajideAlao-knn/dog-breed-classifier.git
 cd dog-breed-classifier
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python app.py
+streamlit run streamlit_app.py
 ```
 
-Open http://127.0.0.1:7860 and upload a dog photo.
+Open http://localhost:8501 and upload a dog photo.
 
-## Deploying to Hugging Face Spaces (free public link)
+## Deploying to Streamlit Community Cloud (free public link)
 
-1. Create a free account at [huggingface.co](https://huggingface.co/join).
-2. Go to **New → Space**. Name it `dog-breed-classifier`, choose **Gradio** as the SDK, template **Blank**, hardware **CPU basic (free)**, visibility **Public**, then **Create Space**.
-3. In the Space, open **Files → Add file → Upload files** and upload:
-   - `app.py`, `model_utils.py`, `breed_info.json`, `requirements.txt`
-   - the whole `model/` folder (drag the folder in so the path stays `model/...`)
-   - optionally the `examples/` folder with a few dog photos
-4. Click **Commit**. The Space builds for a few minutes, then your app is live at
-   `https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier` — share that link.
+The app deploys straight from this GitHub repo; the trained model is already in `model/`, so nothing has to be uploaded by hand.
 
-<details>
-<summary>Alternative: push with git</summary>
+1. Go to [share.streamlit.io](https://share.streamlit.io) and **sign in with GitHub**.
+2. Click **Create app → Deploy a public app from GitHub**.
+3. Fill in:
+   - **Repository:** `BabajideAlao-knn/dog-breed-classifier`
+   - **Branch:** `main`
+   - **Main file path:** `streamlit_app.py`
+   - **App URL:** `babajide-dog-breed-classifier`
+4. Click **Deploy**. The first build installs PyTorch and takes a few minutes; then the app is live at
+   https://babajide-dog-breed-classifier.streamlit.app
 
-```bash
-pip install huggingface_hub
-huggingface-cli login                      # paste a write token from hf.co/settings/tokens
-git clone https://huggingface.co/spaces/BabajideAlao-knn/dog-breed-classifier hf-space
-cp -r app.py model_utils.py breed_info.json requirements.txt model examples hf-space/
-cd hf-space
-git lfs install && git lfs track "*.pth"   # weights are >10 MB, so they go through Git LFS
-git add . && git commit -m "Deploy dog breed classifier" && git push
-```
-</details>
-
-## Pushing this project to GitHub
-
-```bash
-cd dog-breed-classifier
-git remote add origin https://github.com/BabajideAlao-knn/dog-breed-classifier.git
-git branch -M main
-git push -u origin main
-```
-
-(Create an **empty** repository named `dog-breed-classifier` on GitHub first — no README or licence — so the push doesn't conflict.)
+Every push to `main` redeploys the app automatically.
 
 ## Limitations and future work
 

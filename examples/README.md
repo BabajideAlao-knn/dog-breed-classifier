@@ -1,3 +1,3 @@
-Put a few dog photos here (jpg/png/webp). They appear as clickable examples under the upload box in the app.
+Optional: put a few dog photos here (jpg/png/webp). The app offers them in a "try an example" dropdown so visitors can test it without their own photo.
 
-Tip: use one photo from each of a few different breeds, ideally your own photos or ones with a permissive licence.
+Use your own photos or ones with a permissive licence.

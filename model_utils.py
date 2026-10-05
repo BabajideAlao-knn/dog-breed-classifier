@@ -1,6 +1,6 @@
 """Shared model + preprocessing utilities.
 
-Used by the Gradio app (app.py). The training notebook defines the exact same
+Used by the Streamlit app (streamlit_app.py). The training notebook defines the exact same
 architecture and transforms, so weights saved there load here unchanged.
 """
 

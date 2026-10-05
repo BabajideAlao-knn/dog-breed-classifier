@@ -15,9 +15,8 @@ dataset/
 # Training outputs you've already unzipped
 *.zip
 
-# Gradio
-flagged/
-.gradio/
+# Streamlit secrets
+.streamlit/secrets.toml
 
 # OS / editors
 .DS_Store
